@@ -1,0 +1,30 @@
+@startuml
+actor User
+participant "CSV文件 (原始)" as Source
+participant "数据清洗程序" as Cleaner
+participant "CSV文件 (清洗后)" as Target
+
+User -> Cleaner: 运行数据清洗程序
+Cleaner -> Source: 读取原始 CSV 文件 (GBK 编码)
+Source --> Cleaner: 返回数据列表
+
+Cleaner -> Cleaner: 去除空格，保留标题行
+
+alt 处理特殊房源类型
+    Cleaner -> Cleaner: 调整别墅类数据的字段位置
+    Cleaner -> Cleaner: 处理商业办公类数据的日期格式
+    Cleaner -> Cleaner: 调整车库类数据的字段映射
+end
+
+alt 数据标准化
+    Cleaner -> Cleaner: 转换价格字段为整数
+    Cleaner -> Cleaner: 去除面积字段的㎡单位
+end
+
+alt 处理异常数据
+    Cleaner -> Cleaner: 记录转换失败的数据，不写入
+end
+
+Cleaner -> Target: 写入清洗后的 CSV 文件 (UTF-8 编码)
+Target --> User: 数据清洗完成
+@enduml

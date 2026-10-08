@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "词云程序" as Program
+participant "数据文件" as DataFile
+participant "背景图片" as ImageFile
+participant "词云结果" as WordCloud
+
+User -> Program: 运行程序
+Program -> DataFile: 读取 CSV 数据
+Program -> Program: 进行分词 (jieba.cut)
+Program -> Program: 过滤停用词
+Program -> ImageFile: 读取背景图片
+Program -> WordCloud: 生成词云
+Program -> WordCloud: 保存词云图片
+User -> WordCloud: 查看生成的词云
+@enduml

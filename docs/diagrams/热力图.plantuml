@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant "热力图生成脚本程序" as Heatmap
+participant "CSV File" as CSV
+participant "百度地图API" as API
+participant "Merged Data" as Data
+participant "Output Files" as Output
+
+User -> Heatmap: 运行热力图执行脚本
+User -> CSV : 读取ershoufang-clean-utf8-v1.1.csv
+CSV -> User : 提供数据
+User -> API : 获取每个房产的经纬度信息
+API -> User : 返回经纬度
+User -> Data : 合并房产数据和经纬度
+Data -> User : 提供合并后的数据
+User -> Output : 格式化并输出JS文件(xiaoyu401.js, total.js)
+Output -> User : 输出热力图文件
+@enduml

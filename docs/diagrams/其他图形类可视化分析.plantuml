@@ -1,0 +1,15 @@
+@startuml
+participant 用户
+participant Python脚本
+participant Pandas
+participant Matplotlib
+
+用户 -> Python脚本 : 运行程序
+Python脚本 -> Pandas : 读取 CSV 文件
+Pandas -> Python脚本 : 返回数据表
+Python脚本 -> Pandas : 处理缺失值
+Python脚本 -> Pandas : 计算房屋户型占比
+Python脚本 -> Matplotlib : 绘制分析的图形
+Matplotlib -> Python脚本 : 生成并保存图片
+Python脚本 -> 用户 : 展示分析结果
+@enduml

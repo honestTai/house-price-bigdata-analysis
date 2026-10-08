@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房屋分析与房价分析</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+<header>
+
+    <h1>聚类机器学习</h1>
+    <div class="box"></div>
+    <div class="flex">
+        <div class="chart-container">
+            <p class="box-title">k-means聚类结果分组0</p>
+            <iframe src="{% static 'k-means聚类结果分组0.html' %}" height="500"></iframe>
+        </div>
+        <div class="chart-container">
+            <p class="box-title">k-means聚类结果分组1</p>
+            <iframe src="{% static 'k-means聚类结果分组1.html' %}" height="500"></iframe>
+        </div>
+        <div class="chart-container">
+            <p class="box-title">k-means聚类结果分组2</p>
+            <iframe src="{% static 'k-means聚类结果分组2.html' %}" height="500"></iframe>
+        </div>
+        <div class="chart-container">
+            <p class="box-title">k-means聚类结果分组3</p>
+            <iframe src="{% static 'k-means聚类结果分组3.html' %}" height="500"></iframe>
+        </div>
+        <div class="chart-container">
+            <p class="box-title">k-means聚类结果分组4</p>
+            <iframe src="{% static 'k-means聚类结果分组4.html' %}" height="500"></iframe>
+        </div>
+    </div>
+    <div class="flex">
+        <div height="400">
+            <p class="box-title">总价与建筑面积散点图</p>
+            <img src="{% static '聚类结果总价价与建筑面积的散点图.png' %}" height="320"/>
+        </div>
+        <div height="400">
+            <p class="box-title">单价与建筑面积散点图</p>
+            <img src="{% static '聚类结果单价与建筑面积的散点图.png' %}" height="320"/>
+        </div>
+
+    </div>
+    <h1>房屋分析</h1>
+    <div class="box"></div>
+    <div class="flex">
+        <div class="width-30">
+            <p class="box-title">北京二手房建筑类型占比分析</p>
+            <img src="{% static '北京二手房建筑类型占比情况.png' %}" height="320"/>
+        </div>
+        <div class="width-30">
+            <p class="box-title">北京二手房房屋户型占比情况</p>
+            <img src="{% static '北京二手房房屋户型占比情况.png' %}" height="320"/>
+        </div>
+        <div class="width-30">
+            <p class="box-title">北京二手房装修占比情况</p>
+            <img src="{% static '北京二手房装修占比情况.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京二手房建筑面积分布图</p>
+            <img src="{% static '北京二手房建筑面积分布区间.png' %}" height="320"/>
+        </div>
+
+        <div>
+            <p class="box-title">北京二手房房屋用途水平柱状图</p>
+            <img src="{% static '北京二手房房屋用途水平柱状图.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">房源朝向分布情况</p>
+            <img src="{% static '房源朝向分布情况.png' %}" height="320"/>
+        </div>
+
+        <div>
+            <p class="box-title">北京各区域二手房房源数量</p>
+            <img src="{% static '北京各区域二手房房源数量.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京各区域二手房平均建筑面积</p>
+            <img src="{% static '北京各区域二手房平均建筑面积.png' %}" height="320"/>
+        </div>
+
+        <div>
+            <p class="box-title">聚类结果总价价与建筑面积的散点图</p>
+            <img src="{% static '聚类结果总价价与建筑面积的散点图.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京二手房数据词云</p>
+            <img src="{% static '北京二手房数据词云2.png' %}"/>
+        </div>
+    </div>
+
+    <h1>房价分析</h1>
+    <div class="box"></div>
+
+    <div class="flex">
+        <div>
+            <p class="box-title">北京各区域二手房总价箱线图</p>
+            <img src="{% static '北京各区域二手房总价箱线图.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京各区域二手房平均单价</p>
+            <img src="{% static '北京各区域二手房平均单价.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京各区域二手房单价箱线图</p>
+            <img src="{% static '北京各区域二手房单价箱线图.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京二手房总价与建筑面积散点图</p>
+            <img src="{% static '北京二手房总价与建筑面积散点图.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京二手房单价最高Top20</p>
+            <img src="{% static '北京二手房单价最高Top20.png' %}" height="320"/>
+        </div>
+        <div>
+            <p class="box-title">北京二手房单价与建筑面积散点图</p>
+            <img src="{% static '北京二手房单价与建筑面积散点图.png' %}" height="320"/>
+        </div>
+    </div>
+
+    <h1>热力图</h1>
+    <div class="box"></div>
+    <div class="flex width-48">
+        <div class="chart-container">
+            <p class="box-title">北京二手房总价小于400万的分布图</p>
+            <iframe src="{% static '北京二手房总价小于400万的分布图.html' %}" height="500" width="100%"></iframe>
+        </div>
+        <div class="chart-container">
+            <p class="box-title">北京二手房总价热力图</p>
+            <iframe src="{% static '北京二手房总价热力图.html' %}" height="500"></iframe>
+        </div>
+    </div>
+
+</header>
+</body>
+</html>

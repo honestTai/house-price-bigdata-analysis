@@ -1,0 +1,26 @@
+@startuml
+actor User
+participant "SpiderMain" as SM
+participant "UrlManager" as UM
+participant "HtmlDownloader" as HD
+participant "HtmlParser" as HP
+participant "HtmlOutputer" as HO
+
+User -> SM: 启动爬虫 (craw)
+SM -> UM: 初始化URL管理器
+SM -> HD: 下载区域房源列表页
+HD -> SM: 返回HTML内容
+SM -> HP: 解析房源详情URL
+HP -> SM: 返回详情页面URL列表
+SM -> UM: 存储详情URL
+
+loop 遍历详情页面
+    SM -> UM: 获取一个详情URL
+    SM -> HD: 下载房源详情页
+    HD -> SM: 返回详情页HTML内容
+    SM -> HP: 解析房源数据
+    HP -> SM: 返回解析后的数据
+    SM -> HO: 存储或输出数据
+    SM -> SM: 休眠避免反爬
+end
+@enduml

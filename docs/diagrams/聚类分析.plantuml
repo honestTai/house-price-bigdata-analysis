@@ -1,0 +1,30 @@
+@startuml
+actor 用户
+participant "数据预处理" as DP
+participant "KMeans算法" as KMeans
+participant "SSE计算" as SSE
+participant "可视化" as Viz
+
+用户 -> DP: 加载并清洗数据
+DP -> DP: 处理缺失值
+DP -> DP: 去除离群值
+DP -> DP: 准备聚类所需数据集
+DP -> KMeans: 提供预处理后的数据
+
+KMeans -> SSE: 计算不同k值的SSE
+SSE -> SSE: 计算k=2, 3, ..., 10的SSE值
+SSE -> KMeans: 返回SSE值
+
+KMeans -> KMeans: 根据SSE确定最优k值
+KMeans -> DP: 选择k值
+
+KMeans -> KMeans: 使用选择的k值进行聚类
+KMeans -> KMeans: 计算质心和标签
+KMeans -> Viz: 提供聚类结果
+
+Viz -> Viz: 创建单价与面积的散点图
+Viz -> Viz: 创建总价与面积的散点图
+Viz -> Viz: 生成地图文件
+
+Viz -> 用户: 显示聚类结果和地图
+@enduml
